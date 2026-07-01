@@ -30,7 +30,7 @@ html {
 
 /* ——— Cursor Mac OS Classic em verde neon ——— */
 html {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='22' viewBox='0 0 16 22'%3E%3Cpolygon points='0,0 0,17 4,13 7,21 10,19.5 7,12 12,12' fill='%23aaff00' stroke='%23aaff00' stroke-width='2' stroke-linejoin='round'/%3E%3Cpolygon points='1,1 1,15.5 4,12 7,19.5 9,18.5 6,11 11,11' fill='%23000'/%3E%3C/svg%3E") 0 0, auto;
+  cursor: url('/cursors/hand-pointer.png') 3 1, auto;
 }
 
 a, button, [role="button"] {
