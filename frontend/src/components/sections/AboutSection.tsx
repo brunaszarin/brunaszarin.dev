@@ -2,18 +2,21 @@
 
 import { useScrollParallax } from '@/hooks/useScrollParallax'
 import { ParallaxBackground } from './ParallaxBackground'
+import { useFadeIn } from '@/hooks/useFadeIn'
 import styles from './AboutSection.module.css'
 
 export function AboutSection() {
   const { elementRef, offset } = useScrollParallax(0.50)
+  const { ref: fadeRef, isVisible } = useFadeIn<HTMLElement>()
 
   return (
-    <section id="about" ref={elementRef} className={styles.about}>
-      <div
-        className={styles.bgWrap}
-        style={{ transform: `translateY(${offset}px)` }}
-      >
-        <ParallaxBackground offset={{ x: 0, y: 0 }} />
+    <section
+      id="about"
+      ref={fadeRef}
+      className={`${styles.about} fade-section ${isVisible ? 'is-visible' : ''}`}
+    >
+      <div ref={elementRef} className={styles.bgWrap}>
+        <ParallaxBackground offset={{ x: 0, y: offset }} />
       </div>
 
       <div className={styles.content}>
