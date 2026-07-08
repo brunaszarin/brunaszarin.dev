@@ -11,16 +11,22 @@ import styles from './HeroSection.module.css'
 
 export function HeroSection() {
   const { containerRef, offset } = useMouseParallax()
-  const { ref: fadeRef, isVisible } = useFadeIn()
+  const { ref: fadeRef, isVisible } = useFadeIn<HTMLElement>()
+
+  const setRefs = (node: HTMLElement | null) => {
+    containerRef.current = node as HTMLDivElement
+    fadeRef.current = node
+  }
 
   return (
-     <section
+    <section
       id="home"
-      ref={fadeRef}
+      ref={setRefs}
       className={`${styles.hero} fade-section section-fade-bottom ${isVisible ? 'is-visible' : ''}`}
     >
       <ParallaxBackground offset={offset} />
       <FloatingElements />
+
       {/* Imagem flutuante — canto superior esquerdo */}
       <div
         className={styles.floatImgTopLeft}
@@ -54,6 +60,7 @@ export function HeroSection() {
           aria-hidden="true"
         />
       </div>
+
       <div className={styles.content}>
         {/* Texto à esquerda */}
         <div
@@ -68,7 +75,6 @@ export function HeroSection() {
           </h1>
           <p className={styles.subtitle}>
             I build things for the web (and pet cats)
-
           </p>
           <div className={styles.buttons}>
             <PixelButton variant="green">my work</PixelButton>

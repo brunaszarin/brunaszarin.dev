@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { LogoMarquee } from '@/components/sections/LogoMarquee'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { ProjectsSection } from '@/components/sections/projects/ProjectsSection'
-
+import { ContactSection } from '@/components/sections/contact/ContactSection'
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
         <LogoMarquee />
         <AboutSection />
         <ProjectsSection />
+        <ContactSection />
       </main>
     </>
   )

@@ -1,0 +1,109 @@
+.contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 3rem;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-neon);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 600;
+  color: #f0f0f0;
+  line-height: 1.2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.submit {
+  margin-top: 0.5rem;
+}
+
+.success {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-neon);
+}
+
+.error {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #ff6b9d;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.findMe {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #c0c0c0;
+  text-align: center;
+}
+
+.email {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #7bc400;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.email:hover {
+  color: var(--color-neon);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .contact {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.catWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
