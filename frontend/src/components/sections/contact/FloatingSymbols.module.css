@@ -1,0 +1,38 @@
+.container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.symbol {
+  position: absolute;
+  font-family: var(--font-pixel);
+  font-weight: 600;
+  color: var(--color-neon);
+  opacity: 0;
+  animation-name: floatUp;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0 8px rgba(170, 255, 0, 0.4);
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

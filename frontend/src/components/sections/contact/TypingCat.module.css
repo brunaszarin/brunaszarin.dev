@@ -1,0 +1,6 @@
+.cat {
+  width: 200px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 16px rgba(170, 255, 0, 0.3));
+}
