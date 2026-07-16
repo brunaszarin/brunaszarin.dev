@@ -40,7 +40,6 @@ export function SpaceBackground({ mouseOffset }: SpaceBackgroundProps) {
         className={styles.layer}
         style={{ transform: `translate(${farShift.x}px, ${farShift.y}px)` }}
       >
-        <div className={`${styles.neb} ${styles.neb1}`} />
         <div className={`${styles.neb} ${styles.neb2}`} />
       </div>
 
