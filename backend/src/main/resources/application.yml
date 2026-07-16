@@ -28,7 +28,7 @@ management:
 
 app:
   cors:
-    allowed-origins: ${CORS_ORIGINS:http://localhost:3000}
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:3001}
 
 resend:
   api-key: ${RESEND_API_KEY}
