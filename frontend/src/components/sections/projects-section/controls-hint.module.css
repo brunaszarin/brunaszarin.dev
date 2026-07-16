@@ -62,7 +62,28 @@
   font-size: 11px;
 }
 
+/* O bloco "or use [←][→]" precisa do próprio flex — senão os filhos
+   (texto + os 2 ícones de seta) quebram linha em vez de ficar lado a lado */
+.keyboardHint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 @keyframes hintPulse {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
+}
+
+/* No mobile não existe teclado — mostra só "scroll" */
+@media (max-width: 640px) {
+  .keyboardHint {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hint {
+    bottom: calc(24px + var(--mobile-tabbar-height));
+  }
 }

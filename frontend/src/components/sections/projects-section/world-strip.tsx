@@ -19,6 +19,12 @@ export function stopX(index: number) {
 // Onde o gato fica fixo na tela (px da esquerda)
 export const CAT_ANCHOR = 140
 
+// Largura do card (precisa bater com company-card.module.css .card)
+const CARD_WIDTH = 280
+// Margem de segurança extra pra garantir que o card saiu de vez da tela,
+// independente do tamanho do dispositivo
+const EXIT_MARGIN = 60
+
 interface WorldStripProps {
   progress: number
 }
@@ -27,7 +33,13 @@ export function WorldStrip({ progress }: WorldStripProps) {
   // O mundo termina de deslizar em 85% do scroll (o resto é pro gato sair)
   const WORLD_END = 0.85
   const worldProgress = Math.min(1, progress / WORLD_END)
-  const maxShift = stopX(EXPERIENCES.length - 1) - CAT_ANCHOR - 200
+
+  // O mundo desliza até a casinha + card da última empresa terem saído
+  // completamente da tela pela esquerda — só então o gato "destrava" e
+  // segue sozinho. Isso funciona em qualquer largura de tela, porque não
+  // depende de calibrar onde o card "cabe": ele sempre passa por inteiro.
+  const lastCardRightEdge = stopX(EXPERIENCES.length - 1) + 60 + CARD_WIDTH
+  const maxShift = lastCardRightEdge + EXIT_MARGIN - CAT_ANCHOR
   const shift = worldProgress * maxShift
 
   return (
