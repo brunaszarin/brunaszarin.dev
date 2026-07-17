@@ -27,7 +27,12 @@ public class ApiKeyAuthFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         String method = request.getMethod();
         String path = request.getRequestURI();
-        boolean isMutatingPostsRequest = path.startsWith("/api/posts") && !method.equals("GET");
+        // OPTIONS é o preflight de CORS que o navegador manda antes de POST/
+        // PUT/DELETE — ele nunca inclui a chave, então precisa passar livre
+        // (a requisição de verdade que vem depois continua protegida)
+        boolean isMutatingPostsRequest = path.startsWith("/api/posts")
+            && !method.equals("GET")
+            && !method.equals("OPTIONS");
 
         if (isMutatingPostsRequest) {
             String providedKey = request.getHeader("X-API-Key");
