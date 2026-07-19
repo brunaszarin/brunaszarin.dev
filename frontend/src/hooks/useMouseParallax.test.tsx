@@ -1,5 +1,5 @@
 import { renderHook} from '@testing-library/react'
-import { useMouseParallax } from '../useMouseParallax'
+import { useMouseParallax } from './useMouseParallax'
 
 describe('useMouseParallax', () => {
   beforeEach(() => {
