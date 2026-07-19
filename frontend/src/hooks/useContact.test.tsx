@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react'
-import { useContact } from '../useContact'
+import { useContact } from './useContact'
 import { api } from '@/lib/api'
 import { createWrapper } from '@/test-utils/createWrapper'
 

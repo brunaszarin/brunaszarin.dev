@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react'
-import { usePosts } from '../usePosts'
+import { usePosts } from './usePosts'
 import { api } from '@/lib/api'
 import { createWrapper } from '@/test-utils/createWrapper'
 

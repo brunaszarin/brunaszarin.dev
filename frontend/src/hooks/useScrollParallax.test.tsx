@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useScrollParallax } from '../useScrollParallax'
+import { useScrollParallax } from './useScrollParallax'
 
 describe('useScrollParallax', () => {
   it('retorna elementRef e offset inicial', () => {
