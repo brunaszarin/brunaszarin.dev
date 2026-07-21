@@ -1,5 +1,5 @@
 import { EXPERIENCES } from '@/data/experiences'
-import { CompanyHouse } from './company-house'
+import { CompanyBuilding } from './company-building'
 import { CompanyCard } from './company-card'
 import styles from './world-strip.module.css'
 
@@ -25,22 +25,26 @@ const CARD_WIDTH = 280
 // independente do tamanho do dispositivo
 const EXIT_MARGIN = 60
 
+// O mundo termina de deslizar em 85% do scroll (o resto é pro gato sair)
+const WORLD_END = 0.85
+
+// Calcula o deslocamento horizontal do mundo pra um dado progresso —
+// extraído como função própria pra outras camadas (tipo o skyline de
+// prédios) poderem sincronizar o próprio movimento com o mesmo valor,
+// sem duplicar a fórmula.
+export function getWorldShift(progress: number) {
+  const worldProgress = Math.min(1, progress / WORLD_END)
+  const lastCardRightEdge = stopX(EXPERIENCES.length - 1) + 60 + CARD_WIDTH
+  const maxShift = lastCardRightEdge + EXIT_MARGIN - CAT_ANCHOR
+  return worldProgress * maxShift
+}
+
 interface WorldStripProps {
   progress: number
 }
 
 export function WorldStrip({ progress }: WorldStripProps) {
-  // O mundo termina de deslizar em 85% do scroll (o resto é pro gato sair)
-  const WORLD_END = 0.85
-  const worldProgress = Math.min(1, progress / WORLD_END)
-
-  // O mundo desliza até a casinha + card da última empresa terem saído
-  // completamente da tela pela esquerda — só então o gato "destrava" e
-  // segue sozinho. Isso funciona em qualquer largura de tela, porque não
-  // depende de calibrar onde o card "cabe": ele sempre passa por inteiro.
-  const lastCardRightEdge = stopX(EXPERIENCES.length - 1) + 60 + CARD_WIDTH
-  const maxShift = lastCardRightEdge + EXIT_MARGIN - CAT_ANCHOR
-  const shift = worldProgress * maxShift
+  const shift = getWorldShift(progress)
 
   return (
     <div
@@ -63,12 +67,12 @@ export function WorldStrip({ progress }: WorldStripProps) {
 
         return (
           <div key={exp.id}>
-            {/* Casinha */}
+            {/* Prédio */}
             <div
               className={styles.house}
-              style={{ left: `${stopX(i) - 70}px` }}
+              style={{ left: `${stopX(i) - 90}px` }}
             >
-              <CompanyHouse />
+              <CompanyBuilding />
             </div>
 
             {/* Card com detalhes */}

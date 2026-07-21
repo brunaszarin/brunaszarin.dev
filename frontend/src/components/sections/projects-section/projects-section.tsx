@@ -3,6 +3,7 @@
 import { useCatWalk } from '@/hooks/useCatWalk'
 import { useMouseParallax } from '@/hooks/useMouseParallax'
 import { SpaceBackground } from './space-background'
+import { BuildingsSkyline } from './buildings-skyline'
 import { WorldStrip, CAT_ANCHOR } from './world-strip'
 import { WalkingCat } from './walking-cat'
 import { useFadeIn } from '@/hooks/useFadeIn'
@@ -15,6 +16,7 @@ export function ProjectsSection() {
   const { containerRef, offset } = useMouseParallax()
   const { ref: fadeRef, isVisible } = useFadeIn<HTMLElement>(0.01)
   useKeyboardScroll(sectionRef)
+
   // Combina os dois refs (scroll do gato + fade) no mesmo elemento
   const setRefs = (node: HTMLElement | null) => {
     sectionRef.current = node
@@ -43,6 +45,7 @@ export function ProjectsSection() {
         </div>
 
         <div className={styles.stage}>
+          <BuildingsSkyline progress={progress} />
           {/* O mundo que desliza */}
           <WorldStrip progress={progress} />
           <ControlsHint />
