@@ -1,0 +1,18 @@
+.skyline {
+  position: absolute;
+  /* Margem generosa e fixa (não em %) — o deslocamento do paralaxe é em
+     pixels fixos (baseado na distância entre empresas), então em telas
+     estreitas uma margem em % vira pouca sobra e a borda vazia aparece.
+     500vw de largura garante folga de sobra em qualquer tamanho de tela. */
+  left: -200vw;
+  bottom: 158px;
+  width: 500vw;
+  height: 300px;
+  background-image: url('/assets/city.svg');
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: auto 300px;
+  z-index: 0;
+  opacity: 0.7;
+  pointer-events: none;
+}
