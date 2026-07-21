@@ -1,0 +1,32 @@
+.building {
+  width: 100%;
+  height: auto;
+}
+
+.antennaLight {
+  animation: blink 2.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.08; }
+}
+
+.flickerA { animation: flicker-a 4s ease-in-out infinite; }
+.flickerB { animation: flicker-b 5.2s ease-in-out infinite; }
+.flickerC { animation: flicker-c 3.6s ease-in-out infinite; }
+
+@keyframes flicker-a {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes flicker-b {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes flicker-c {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
