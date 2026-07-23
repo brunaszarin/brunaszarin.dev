@@ -3,6 +3,7 @@ import { Pixelify_Sans, Bricolage_Grotesque } from 'next/font/google'
 import { Providers } from './providers'
 import { Navbar } from '@/components/layout/navbar'
 import { SmoothScrollProvider } from '@/components/smooth-scroll/smooth-scroll-provider'
+import { PixelTransitions } from '@/components/pixel-transitions/pixel-transitions'
 import './globals.css'
 
 const pixelFont = Pixelify_Sans({
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
+          <PixelTransitions />
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
         </Providers>
       </body>
